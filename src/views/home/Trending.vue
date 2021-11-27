@@ -35,7 +35,7 @@ export default {
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
-          this.movies = data.results.slice(0, 10);
+          this.movies = data.results.slice(0, 20);
           console.log(this.movies);
           this.loading = false;
         })

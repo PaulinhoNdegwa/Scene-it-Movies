@@ -10,14 +10,14 @@
 <style>
 body {
   margin: 0;
-  background: #ddd;
+  background: #252634;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #1e2a36;
+  color: #eee;
   margin: 10px;
 }
 #app > h3 {
@@ -31,7 +31,7 @@ body {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #fff;
 }
 
 #nav a.router-link-exact-active {
@@ -39,5 +39,9 @@ body {
 }
 .error-message {
   color: crimson;
+}
+hr {
+  width: 90%;
+  margin: 0 auto;
 }
 </style>

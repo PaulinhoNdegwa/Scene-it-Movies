@@ -5,7 +5,6 @@
     <input @keydown="clearSearch" type="text" v-model="query_name" />
     <button @click="getMovies">Search</button>
   </form>
-  <hr style="display: inline-block; width: 300px margin: 10px 0 10px 0" />
   <p>
     Search query: <strong>{{ query_name }}</strong>
   </p>
@@ -14,7 +13,7 @@
   </div>
   <div v-if="fetched&& error">{{ error }}</div>
   <p v-if="available_movies">
-    Showing {{ page * 20 }} out of {{ available_movies }}
+    Showing {{ available_movies > 20 ? page * 20 : available_movies }} out of {{ available_movies }}
   </p>
   <MoviesContainer v-if="movies.length" :movies="movies" />
   <Loader v-if="loading" />
@@ -87,12 +86,12 @@ export default {
   padding: 4px 8px;
   background: inherit;
   box-sizing: border-box;
-  color: #000;
+  color: #eee;
   margin: 5px 10px;
   font-size: 15px;
 }
 .search-form label {
-  color: #555;
+  color: #eee;
   display: inline-block;
   margin: 15px 0 10px;
   font-size: 0.8em;
@@ -115,11 +114,11 @@ export default {
 .load-more {
   background: slategrey;
   margin-bottom: 30px;
-  color: #000;
+  color: #fff;
   font-weight: 700;
 }
 .search-form button:hover, .load-more:hover {
-  border: 1px #000 solid;
+  border: 1px #eee solid;
   cursor: pointer;
 }
 @media screen and (max-width: 400px) {

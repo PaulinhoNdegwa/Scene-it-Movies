@@ -121,8 +121,8 @@ export default {
 .movie-details-content .title {
   text-decoration: none;
   font-weight: 900;
-  font-size: 20px;
-  color: #000;
+  font-size: 24px;
+  color: #eee;
 }
 .movie-details-content .tagline {
   font-size: 15px;
@@ -144,11 +144,12 @@ p {
 .movie-details-content .genre {
   display: inline-block !important;
   margin: 0 5px;
-  background: rgb(167, 166, 166);
-  color: rgb(59, 59, 59);
+  background: rgb(112, 112, 112);
+  color: #fff;
   border-radius: 2.5px;
-  padding: 2px 6px;
-  font-size: 12px;
+  padding: 2px 7px;
+  font-size: 13px;
+  font-style: italic;
 }
 .movie-details-content .watch {
     text-align: right;
@@ -176,11 +177,12 @@ p {
 .watch-now {
   margin: 10px 10px 0 5px;
   display: inline-block;
-  background: darkolivegreen;
-  padding: 5px 10px;
+  background: #42b983;
+  padding: 4px 10px;
   border-radius: 4px;
   border: none;
   text-decoration: none;
-  color: white;
+  color: #fff;
+  font-weight: 500;
 }
 </style>

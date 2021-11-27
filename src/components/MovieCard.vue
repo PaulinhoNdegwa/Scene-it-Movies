@@ -22,13 +22,14 @@
           {{
             movie.first_air_date
               ? movie.first_air_date.split("-")[0]
-              : movie.release_date ? movie.release_date.split("-")[0] : ''
+              : movie.release_date
+              ? movie.release_date.split("-")[0]
+              : ""
           }}
         </strong>
       </p>
       <span class="rating"
-        >Rating: <strong>{{ movie.vote_average }}/10</strong
-        ></span
+        >Rating: <strong>{{ movie.vote_average }}/10</strong></span
       >
     </div>
   </div>
@@ -47,23 +48,24 @@ export default {
   margin: 20px 10px;
 }
 .movie:hover {
-  border: 2px #000 solid;
+  border: 2px firebrick solid;
   transform: scale(1.1);
-  background: rgb(180, 180, 180);
+  background: #070818;
 }
 @media screen and (max-width: 800px) {
   .movie {
     width: 350px;
   }
-  
 }
 .poster-image {
-  width: 100%;
-  height: 180px;
+  width: 250px;
+  height: 200px;
+  display: block;
 }
 .extra-details {
   text-align: left;
   padding: 15px;
+  white-space: normal;
 }
 .extra-details .title {
   font-weight: 600;
