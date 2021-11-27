@@ -20,6 +20,9 @@ body {
   color: #2c3e50;
   margin: 10px;
 }
+#app > h3 {
+  text-decoration: underline;
+}
 
 #nav {
   padding: 30px;

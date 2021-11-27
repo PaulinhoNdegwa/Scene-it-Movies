@@ -22,7 +22,7 @@
           {{
             movie.first_air_date
               ? movie.first_air_date.split("-")[0]
-              : movie.release_date.split("-")[0]
+              : movie.release_date ? movie.release_date.split("-")[0] : ''
           }}
         </strong>
       </p>

@@ -1,5 +1,5 @@
 <template>
-  <!-- <h3>Search Movie</h3> -->
+  <h3>Search Movie</h3>
   <form class="search-form">
     <label for="">Search Movie:</label>
     <input type="text" v-model="query_name" />

@@ -97,20 +97,21 @@ export default {
         width: 100% !important;
     }
     .movie-details-poster img {
-        width: auto;
-        max-height: 400px !important;
+        width: 90% !important;
+        max-height: 450px !important;
+        margin-bottom: 20px;
     }
 }
 .movie-details-poster {
   display: inline-block;
 }
 .movie-details-poster img {
-  height: auto;
-  width: 300px;
+  height: 100%;
+  width: 380px;
 }
 .movie-details-content {
   display: inline-block;
-  width: 600px;
+  width: 500px;
   padding: 10px;
   padding-top: 30px;
   text-align: left;
