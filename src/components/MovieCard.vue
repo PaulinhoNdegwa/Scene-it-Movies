@@ -6,7 +6,11 @@
     "
   >
     <img
-      :src="movie.backdrop_path ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path : 'https://fakeimg.pl/350x200/?text=Movie Poster'"
+      :src="
+        movie.backdrop_path
+          ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path
+          : 'https://fakeimg.pl/350x200/?text=Movie Poster'
+      "
       alt=""
       class="poster-image"
     />
@@ -14,13 +18,18 @@
       <p class="title">{{ movie.title || movie.name }}</p>
       <p class="release-date">
         Released:
-        {{
-          movie.first_air_date
-            ? movie.first_air_date.split("-")[0]
-            : movie.release_date.split("-")[0]
-        }}
+        <strong>
+          {{
+            movie.first_air_date
+              ? movie.first_air_date.split("-")[0]
+              : movie.release_date.split("-")[0]
+          }}
+        </strong>
       </p>
-      <span class="rating">Rating: {{ movie.vote_average }}/10</span>
+      <span class="rating"
+        >Rating: <strong>{{ movie.vote_average }}/10</strong
+        ></span
+      >
     </div>
   </div>
 </template>
@@ -39,22 +48,18 @@ export default {
 }
 .movie:hover {
   border: 2px #000 solid;
-  width: 246px;
   transform: scale(1.1);
-  background: rgb(165, 165, 165);
+  background: rgb(180, 180, 180);
 }
 @media screen and (max-width: 800px) {
   .movie {
-    width: 320px;
+    width: 350px;
   }
-  .movie:hover {
-    border: 2px #058d3e solid;
-    width: 316px;
-  }
+  
 }
 .poster-image {
   width: 100%;
-  height: 160px;
+  height: 180px;
 }
 .extra-details {
   text-align: left;
@@ -66,7 +71,7 @@ export default {
 }
 .extra-details .release-date {
   margin: 5px 0;
-  font-size: 15px;
+  font-size: 14px;
 }
 .extra-details .rating {
   font-size: 14px;
