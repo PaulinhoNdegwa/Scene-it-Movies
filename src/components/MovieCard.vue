@@ -6,7 +6,7 @@
     "
   >
     <img
-      :src="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path"
+      :src="movie.backdrop_path ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path : 'https://fakeimg.pl/350x200/?text=Movie Poster'"
       alt=""
       class="poster-image"
     />
