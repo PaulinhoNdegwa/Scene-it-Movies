@@ -2,7 +2,7 @@
   <h3>Movie Details</h3>
   <MovieDetailsSection v-if="!loading && movie" :movie="movie" />
   <Loader v-else />
-  <SimilarMovies />
+  <SimilarMovies :movie_id="id" />
 </template>
 
 <script>
@@ -27,7 +27,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.id);
     this.getMovie(this.movie_url);
   },
   methods: {
@@ -40,9 +39,7 @@ export default {
           if (!data.success) {
             this.error = "Movie not found";
           }
-
           this.movie = data;
-          console.log(this.movie);
           this.loading = false;
         })
         .catch((err) => {

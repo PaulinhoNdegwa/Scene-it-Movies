@@ -73,9 +73,6 @@
 <script>
 export default {
   props: ["movie"],
-  mounted() {
-    console.log(this.movie);
-  },
 };
 </script>
 

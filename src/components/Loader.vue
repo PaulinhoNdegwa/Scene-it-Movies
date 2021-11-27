@@ -8,8 +8,13 @@
   font-size: 24px;
   font-weight: 600;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 3px;
   padding: 7px;
+}
+@media screen and (max-width: 500px) {
+  .loading {
+    width: 80%;
+  }
 }
 </style>

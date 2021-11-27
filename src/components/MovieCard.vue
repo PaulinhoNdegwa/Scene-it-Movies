@@ -38,11 +38,18 @@ export default {
   margin: 20px 10px;
 }
 .movie:hover {
-  border: 2px #058d3e solid;
+  border: 2px #000 solid;
+  width: 246px;
+  transform: scale(1.1);
+  background: rgb(165, 165, 165);
 }
 @media screen and (max-width: 800px) {
   .movie {
     width: 320px;
+  }
+  .movie:hover {
+    border: 2px #058d3e solid;
+    width: 316px;
   }
 }
 .poster-image {
