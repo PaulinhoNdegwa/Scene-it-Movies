@@ -10,7 +10,8 @@ export default {
     props: ['movies'],
     components: {
         MovieCard
-    }
+    },
+    mounted(){console.log(this.movies)}
 }
 </script>
 

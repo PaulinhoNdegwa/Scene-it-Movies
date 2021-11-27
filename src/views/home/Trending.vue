@@ -26,7 +26,7 @@ export default {
     };
   },
   // components: {},
-  created() {
+  mounted() {
     this.getMovies(this.trending_url);
   },
   methods: {

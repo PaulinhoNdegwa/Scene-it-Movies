@@ -23,7 +23,7 @@ export default {
       error: null
     };
   },
-  created() {
+  mounted() {
     this.getMovies(this.similar_movies_url);
   },
   methods: {

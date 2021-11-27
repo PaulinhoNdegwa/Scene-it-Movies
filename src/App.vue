@@ -17,11 +17,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #1e2a36;
   margin: 10px;
 }
 #app > h3 {
   text-decoration: underline;
+  margin: 15px 0;
 }
 
 #nav {

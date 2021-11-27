@@ -2,15 +2,23 @@
   <h3>Search Movie</h3>
   <form class="search-form">
     <label for="">Search Movie:</label>
-    <input type="text" v-model="query_name" />
+    <input @keydown="clearSearch" type="text" v-model="query_name" />
     <button @click="getMovies">Search</button>
   </form>
   <hr style="display: inline-block; width: 300px margin: 10px 0 10px 0" />
-  <p>Search query: <strong>{{ query_name }}</strong></p>
-  <div class="error-message" v-if="fetched && !movies.length">No movies found. Try another query</div>
+  <p>
+    Search query: <strong>{{ query_name }}</strong>
+  </p>
+  <div class="error-message" v-if="fetched && !movies.length">
+    No movies found. Try another query
+  </div>
+  <div v-if="fetched&& error">{{ error }}</div>
+  <p v-if="available_movies">
+    Showing {{ page * 20 }} out of {{ available_movies }}
+  </p>
+  <MoviesContainer v-if="movies.length" :movies="movies" />
   <Loader v-if="loading" />
-  <div v-if="error">{{ error }}</div>
-  <MoviesContainer :movies="movies" />
+  <button v-if="movies.length" class="load-more" @click="loadMore">More</button>
 </template>
 
 <script>
@@ -26,27 +34,46 @@ export default {
       search_movies_url: ``,
       loading: false,
       error: null,
-      fetched: false
+      fetched: false,
+      page: 1,
+      total_pages: null,
+      available_movies: null,
     };
   },
   methods: {
     getMovies(e) {
-      e.preventDefault();
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&query=${this.query_name}&page=1`;
+      e && e.preventDefault();
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&query=${this.query_name}&page=${this.page}`;
       this.loading = true;
-      this.fetched = false
+      this.fetched = false;
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
-          this.movies = data.results;
-          console.log(this.movies);
+          this.movies = [...this.movies, ...data.results];
+          this.total_pages = data.total_pages;
+          this.available_movies = data.total_results;
           this.loading = false;
-          this.fetched = true
+          this.fetched = true;
         })
         .catch((err) => {
           this.error = err;
           this.loading = false;
         });
+    },
+    loadMore() {
+      if (this.total_pages > this.page) {
+        this.page++;
+        this.getMovies();
+      }
+    },
+    clearSearch() {
+      if (this.fetched) {
+        console.log("Here");
+        this.movies = [];
+        this.fetched = false
+        this.page = 1,
+        this.available_movies = null
+      }
     },
   },
 };
@@ -73,7 +100,8 @@ export default {
   letter-spacing: 1px;
   font-weight: bold;
 }
-.search-form button {
+.search-form button,
+.load-more {
   background: #42b983;
   padding: 7px 15px;
   color: white;
@@ -82,10 +110,16 @@ export default {
   margin: 5px auto;
   font-weight: 500;
   border: 0;
+  cursor: pointer;
 }
-.search-form button:hover {
+.load-more {
+  background: slategrey;
+  margin-bottom: 30px;
+  color: #000;
+  font-weight: 700;
+}
+.search-form button:hover, .load-more:hover {
   border: 1px #000 solid;
-  background: #2f9b6a;
   cursor: pointer;
 }
 @media screen and (max-width: 400px) {

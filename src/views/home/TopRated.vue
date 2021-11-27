@@ -27,7 +27,7 @@ export default {
     };
   },
   // components: {},
-  created() {
+  mounted() {
     this.getMovies(this.toprated_url);
   },
   methods: {
