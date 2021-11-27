@@ -2,17 +2,19 @@
   <div class="home">
     <h3 class="section-headers">Trending Movies</h3>
     <MoviesContainer v-if="movies.length > 0" :movies="movies" />
-    <div v-else class="loading">Loading movies...</div>
+    <Loader v-else />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import MoviesContainer from "../../components/MoviesContainer.vue";
+import Loader from "../../components/Loader.vue";
 export default {
   name: "Trending",
   components: {
     MoviesContainer,
+    Loader
   },
   data() {
     return {
@@ -46,13 +48,5 @@ export default {
 };
 </script>
 <style>
-.loading {
-  width: 400px;
-  background: rgb(192, 192, 192);
-  font-size: 24px;
-  text-align: center;
-  margin: 0 auto;
-  border-radius: 3px;
-  padding: 7px;
-}
+
 </style>

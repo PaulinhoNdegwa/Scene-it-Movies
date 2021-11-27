@@ -1,5 +1,10 @@
 <template>
-  <div class="movie">
+  <div
+    class="movie"
+    @click="
+      this.$router.push({ name: 'MovieDetails', params: { id: movie.id } })
+    "
+  >
     <img
       :src="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path"
       alt=""
@@ -33,17 +38,16 @@ export default {
   margin: 20px 10px;
 }
 .movie:hover {
-    border: 2px rgb(65, 65, 65) solid;
-
+  border: 2px #058d3e solid;
 }
-@media screen and (max-width: 780px) {
-    .movie {
-        width: 280px;
-    }
+@media screen and (max-width: 800px) {
+  .movie {
+    width: 320px;
+  }
 }
 .poster-image {
   width: 100%;
-  height: 150px;
+  height: 160px;
 }
 .extra-details {
   text-align: left;

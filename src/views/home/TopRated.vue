@@ -1,23 +1,26 @@
 <template>
   <div class="home">
-    <h3 class="section-headers">Popular Movies</h3>
+    <h3 class="section-headers">Top Rated Movies</h3>
     <MoviesContainer v-if="movies.length > 0" :movies="movies" />
-    <div v-else class="loading">Loading movies...</div>
+    <Loader v-else />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import MoviesContainer from "../../components/MoviesContainer.vue";
+import Loader from "../../components/Loader.vue";
+
 export default {
   name: "Home",
   components: {
     MoviesContainer,
+    Loader
   },
   data() {
     return {
-      popular_url:
-        "https://api.themoviedb.org/3/tv/popular?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&page=1",
+    toprated_url:
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&page=1",
       loading: false,
       movies: [],
       error: null,
@@ -25,7 +28,7 @@ export default {
   },
   // components: {},
   created() {
-    this.getMovies(this.popular_url);
+    this.getMovies(this.toprated_url);
   },
   methods: {
     getMovies(url) {
@@ -47,13 +50,4 @@ export default {
 </script>
 
 <style>
-.loading {
-    width: 400px;
-    background: rgb(192, 192, 192);
-    font-size: 24px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 3px;
-    padding: 7px;
-}
 </style>

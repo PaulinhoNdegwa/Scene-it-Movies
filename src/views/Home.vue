@@ -2,20 +2,20 @@
   <h3>Home</h3>
   <Trending />
   <Upcoming />
-  <Popular />
+  <TopRated />
   <hr />
 </template>
 
 <script>
 import Trending from "./home/Trending.vue";
-import Popular from "./home/Popular.vue";
+import TopRated from "./home/TopRated.vue";
 import Upcoming from "./home/Upcoming.vue";
 
 export default {
   name: "Home",
   components: {
     Trending,
-    Popular,
+    TopRated,
     Upcoming,
   },
 };
