@@ -15,7 +15,7 @@
   <p v-if="available_movies">
     Showing {{ available_movies > 20 ? page * 20 : available_movies }} out of {{ available_movies }}
   </p>
-  <MoviesContainer v-if="movies.length" :movies="movies" />
+  <MoviesContainer v-if="movies.length" :movies="movies" :horizontal="false" />
   <Loader v-if="loading" />
   <button v-if="movies.length" class="load-more" @click="loadMore">More</button>
 </template>

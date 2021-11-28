@@ -43,7 +43,7 @@ export default {
 
 <style>
 .movie {
-  width: 250px;
+  width: 270px;
   border: 1px #888 solid;
   margin: 20px 10px;
 }
@@ -56,9 +56,12 @@ export default {
   .movie {
     width: 350px;
   }
+  .poster-image {
+    width: 100% !important;
+  }
 }
 .poster-image {
-  width: 250px;
+  width: 270px;
   height: 200px;
   display: block;
 }

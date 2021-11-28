@@ -1,5 +1,5 @@
 <template>
-  <div class="movies">
+  <div class="movies" :class="{'horizontal': horizontal}">
     <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 import MovieCard from "./MovieCard.vue";
 export default {
-  props: ["movies"],
+  props: ["movies", "horizontal"],
   components: {
     MovieCard,
   },
@@ -23,7 +23,7 @@ export default {
   text-align: center;
 }
 @media screen and (min-width: 1000px) {
-  .movies {
+  .horizontal {
     flex-wrap: nowrap;
     justify-content: left;
     overflow-x: auto;

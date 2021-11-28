@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h3 class="section-headers">Upcoming Movies</h3>
-    <MoviesContainer v-if="movies.length > 0" :movies="movies" />
+    <MoviesContainer v-if="movies.length > 0" :movies="movies" :horizontal="true" />
     <Loader v-else />
   </div>
 </template>

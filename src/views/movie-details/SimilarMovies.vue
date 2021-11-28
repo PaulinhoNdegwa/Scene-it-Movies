@@ -1,6 +1,6 @@
 <template>
   <h3>Similar Movies</h3>
-  <MoviesContainer v-if="!loading && movies.length" :movies="movies" />
+  <MoviesContainer v-if="!loading && movies.length" :movies="movies" :horizontal="false"/>
   <Loader v-else />
 </template>
 
