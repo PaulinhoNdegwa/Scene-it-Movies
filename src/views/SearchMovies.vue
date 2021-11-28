@@ -17,7 +17,7 @@
   </p>
   <MoviesContainer v-if="movies.length" :movies="movies" :horizontal="false" />
   <Loader v-if="loading" />
-  <button v-if="movies.length && movies.length < available_movies" class="load-more" @click="loadMore">More</button>
+  <button v-if="movies.length && movies.length < available_movies && !loading" class="load-more" @click="loadMore">More</button>
 </template>
 
 <script>
