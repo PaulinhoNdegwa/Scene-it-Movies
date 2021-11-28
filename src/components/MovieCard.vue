@@ -51,6 +51,7 @@ export default {
   border: 2px firebrick solid;
   transform: scale(1.1);
   background: #070818;
+  color: #b8b8b8;
 }
 @media screen and (max-width: 800px) {
   .movie {
@@ -72,7 +73,7 @@ export default {
 }
 .extra-details .title {
   font-weight: 600;
-  margin: 5px 0;
+  margin: 12px 0;
 }
 .extra-details .release-date {
   margin: 5px 0;

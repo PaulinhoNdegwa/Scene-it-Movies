@@ -25,7 +25,7 @@
           {{ movie.runtime % 60 }}mins</strong
         >
       </p>
-      <p>{{ movie.overview }}</p>
+      <p class="overview">{{ movie.overview }}</p>
       <p class="released">
         Released:
         <strong>
@@ -39,10 +39,10 @@
       <span v-if="movie.vote_average" class="rating">
         Rated: <strong>{{ movie.vote_average }}/10</strong>
       </span>
-      <p style="margin: 10px 0 0 5px"><strong>Produced by:</strong></p>
+      <p style="margin: 10px 0 0 5px">Produced by:</p>
       <div v-if="movie.production_companies" class="production-companies">
         <div
-          v-for="company in movie.production_companies"
+          v-for="company in movie.production_companies.slice(0, 5)"
           :key="company.id"
           class="company"
         >
@@ -84,7 +84,7 @@ export default {
   align-content: center;
   border: 1px #888 solid;
   border-radius: 5px;
-  width: 950px;
+  width: 1150px;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
@@ -96,10 +96,12 @@ export default {
     .movie-details-content {
         width: 100% !important;
     }
+    .movie-details-poster {
+      height: 450px;
+    }
     .movie-details-poster img {
         width: 90% !important;
         max-height: 450px !important;
-        margin-bottom: 20px;
     }
 }
 .movie-details-poster {
@@ -107,25 +109,27 @@ export default {
 }
 .movie-details-poster img {
   height: 100%;
-  width: 380px;
+  width: 450px;
 }
 .movie-details-content {
   display: inline-block;
-  width: 500px;
-  padding: 10px;
+  width: 650px;
+  padding: 15px;
   padding-top: 30px;
   text-align: left;
-  padding: 15px;
   position: relative;
 }
 .movie-details-content .title {
   text-decoration: none;
   font-weight: 900;
-  font-size: 24px;
+  font-size: 28px;
   color: #eee;
 }
+.movie-details-content .overview {
+  font-size: 18px;
+}
 .movie-details-content .tagline {
-  font-size: 15px;
+  font-size: 18px;
   font-style: italic;
   color: darkcyan;
 }
@@ -139,20 +143,21 @@ p {
 }
 .movie-details-content .released,
 .movie-details-content .rating {
-  font-size: 14px;
+  font-size: 18px;
 }
 .movie-details-content .genre {
   display: inline-block !important;
-  margin: 0 5px;
+  margin: 5px 5px;
   background: rgb(112, 112, 112);
   color: #fff;
   border-radius: 2.5px;
   padding: 2px 7px;
-  font-size: 13px;
+  font-size: 17px;
   font-style: italic;
 }
 .movie-details-content .watch {
     text-align: right;
+    margin-top: 25px 0;
 }
 .production-companies {
   display: flex;
@@ -165,7 +170,7 @@ p {
   margin: 0 10px;
 }
 .company p {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 }
 .company img {

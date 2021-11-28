@@ -3,7 +3,7 @@
   <MovieDetailsSection v-if="!loading && movie" :movie="movie" />
   <Loader v-else />
   <SimilarMovies v-if="movie" :movie_id="id" />
-  <hr />
+  <hr v-if="movie" />
 </template>
 
 <script>

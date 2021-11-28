@@ -1,7 +1,7 @@
 <template>
   <h3>Search Movie</h3>
   <form class="search-form">
-    <label for="">Search Movie:</label>
+    <label for="">Search Movie By Name:</label>
     <input @keydown="clearSearch" type="text" v-model="query_name" />
     <button @click="getMovies">Search</button>
   </form>
@@ -13,11 +13,11 @@
   </div>
   <div v-if="fetched&& error">{{ error }}</div>
   <p v-if="available_movies">
-    Showing {{ available_movies > 20 ? page * 20 : available_movies }} out of {{ available_movies }}
+    Showing {{ available_movies > 20 ? movies.length < available_movies ? page * 20 : available_movies : available_movies }} out of {{ available_movies }}
   </p>
   <MoviesContainer v-if="movies.length" :movies="movies" :horizontal="false" />
   <Loader v-if="loading" />
-  <button v-if="movies.length" class="load-more" @click="loadMore">More</button>
+  <button v-if="movies.length && movies.length < available_movies" class="load-more" @click="loadMore">More</button>
 </template>
 
 <script>
@@ -93,8 +93,8 @@ export default {
 .search-form label {
   color: #eee;
   display: inline-block;
-  margin: 15px 0 10px;
-  font-size: 0.8em;
+  margin: 10px;
+  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
@@ -121,7 +121,7 @@ export default {
   border: 1px #eee solid;
   cursor: pointer;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .search-form {
     display: flex;
     flex-direction: column;
