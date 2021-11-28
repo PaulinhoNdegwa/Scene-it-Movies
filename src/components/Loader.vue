@@ -19,9 +19,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #070818;
+  background: #141425;
   margin: 20px auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 @media screen and (max-width: 500px) {
   .center {
