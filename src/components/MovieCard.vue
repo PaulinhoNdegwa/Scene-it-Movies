@@ -8,8 +8,8 @@
     <img
       :src="
         movie.backdrop_path
-          ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path
-          : 'https://fakeimg.pl/350x200/?text=Movie Poster'
+          ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path || movie.poster_path
+          : 'https://fakeimg.pl/350x200/?text=' + movie.title || movie.name
       "
       alt=""
       class="poster-image"
@@ -29,7 +29,7 @@
         </strong>
       </p>
       <span class="rating"
-        >Rating: <strong>{{ movie.vote_average }}/10</strong></span
+        >Rating: <strong>{{ movie.vote_average.toFixed(1) }}/10</strong></span
       >
     </div>
   </div>

@@ -37,12 +37,12 @@
         </strong>
       </p>
       <span v-if="movie.vote_average" class="rating">
-        Rated: <strong>{{ movie.vote_average }}/10</strong>
+        Rated: <strong>{{ movie.vote_average.toFixed(1) }}/10</strong>
       </span>
       <p style="margin: 10px 0 0 5px">Produced by:</p>
       <div v-if="movie.production_companies" class="production-companies">
         <div
-          v-for="company in movie.production_companies.slice(0, 5)"
+          v-for="company in movie.production_companies.slice(0, 4)"
           :key="company.id"
           class="company"
         >
@@ -50,7 +50,7 @@
             :src="
               company.logo_path
                 ? 'https://image.tmdb.org/t/p/w500/' + company.logo_path
-                : 'https://fakeimg.pl/350x200/?text=Company'
+                : 'https://fakeimg.pl/350x200/?text=' + company.name
             "
             :alt="company.name"
           />
