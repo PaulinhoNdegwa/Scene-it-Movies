@@ -42,7 +42,7 @@ export default {
   methods: {
     getMovies(e) {
       e && e.preventDefault();
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&query=${this.query_name}&page=${this.page}`;
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.VUE_APP_MOVIEDB_API_KEY}&language=en-US&query=${this.query_name}&page=${this.page}`;
       this.loading = true;
       this.fetched = false;
       fetch(url)

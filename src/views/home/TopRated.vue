@@ -20,7 +20,7 @@ export default {
   data() {
     return {
     toprated_url:
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&page=1",
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.VUE_APP_MOVIEDB_API_KEY}&language=en-US&page=1`,
       loading: false,
       movies: [],
       error: null,

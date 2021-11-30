@@ -1,7 +1,9 @@
 <template>
   <h3>Similar Movies</h3>
+  <Loader v-if="loading" />
   <MoviesContainer v-if="!loading && movies.length" :movies="movies" :horizontal="false"/>
-  <Loader v-else />
+  <div v-else>Sorry, no movies found</div>
+  <br>
 </template>
 
 <script>
@@ -17,7 +19,7 @@ export default {
   props: ["movie_id"],
   data() {
     return {
-      similar_movies_url: `https://api.themoviedb.org/3/movie/${this.movie_id}/similar?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582&language=en-US&page=1`,
+      similar_movies_url: `https://api.themoviedb.org/3/movie/${this.movie_id}/similar?api_key=${process.env.VUE_APP_MOVIEDB_API_KEY}&language=en-US&page=1`,
       movies: [],
       loading: false,
       error: null

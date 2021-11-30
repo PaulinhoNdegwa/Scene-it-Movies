@@ -21,7 +21,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      movie_url: `https://api.themoviedb.org/3/movie/${this.id}?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582`,
+      movie_url: `https://api.themoviedb.org/3/movie/${this.id}?api_key=${process.env.VUE_APP_MOVIEDB_API_KEY}`,
       movie: null,
       loading: false,
       error: null,

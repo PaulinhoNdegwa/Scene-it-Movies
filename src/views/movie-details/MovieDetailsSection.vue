@@ -3,9 +3,9 @@
     <div class="movie-details-poster">
       <img
         :src="
-          'https://image.tmdb.org/t/p/w500/' + movie.poster_path ||
-          movie.backdrop_path ||
-          'https://fakeimg.pl/350x200/?text=Movie Poster'
+          movie.backdrop_path
+          ? 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path || movie.poster_path
+          : 'https://fakeimg.pl/350x200/?text=' + movie.title || movie.name
         "
         alt=""
       />
@@ -73,6 +73,9 @@
 <script>
 export default {
   props: ["movie"],
+  mounted(){
+    console.log(this.movie)
+  }
 };
 </script>
 

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       trending_url:
-        "https://api.themoviedb.org/3/trending/movie/week?api_key=d4c38aaf3b6b6bf2e1f7a5418a14e582",
+        `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.VUE_APP_MOVIEDB_API_KEY}`,
       loading: false,
       movies: [],
       error: null,
