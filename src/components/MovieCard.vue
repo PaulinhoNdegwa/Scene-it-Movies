@@ -63,8 +63,9 @@ export default {
 }
 .poster-image {
   width: 270px;
-  height: 200px;
+  height: 270px;
   display: block;
+  object-fit: cover;
 }
 .extra-details {
   text-align: left;
